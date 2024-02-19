@@ -1,11 +1,11 @@
 import {
+  BadRequestException,
+  Body,
   Controller,
   Get,
+  NotFoundException,
   Param,
   Post,
-  Body,
-  NotFoundException,
-  BadRequestException,
 } from '@nestjs/common';
 import { CardsService } from './cards.service';
 import { Card } from './models/card.model';
@@ -47,7 +47,7 @@ export class CardsController {
       } else if (error.message === 'Insufficient funds') {
         throw new BadRequestException('Insufficient funds');
       }
-      throw error; // Rethrow any other unexpected errors
+      throw error;
     }
   }
 
@@ -70,7 +70,7 @@ export class CardsController {
       if (error.message === 'Card not found') {
         throw new NotFoundException('Card not found');
       }
-      throw error; // Rethrow any other unexpected errors
+      throw error;
     }
   }
 
@@ -85,7 +85,7 @@ export class CardsController {
       if (error.message === 'Card not found') {
         throw new NotFoundException('Card not found');
       }
-      throw error; // Rethrow any other unexpected errors
+      throw error;
     }
   }
 }

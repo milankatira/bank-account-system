@@ -64,7 +64,7 @@ describe('CardsController (e2e)', () => {
     const response = await request(app.getHttpServer()).get(`/cards/${userId}`);
 
     expect(response.status).toBe(200);
-    expect(response.body).toEqual(expect.arrayContaining([])); // Assuming an empty array as response
+    expect(response.body).toEqual(expect.arrayContaining([]));
   });
 
   it('GET /cards/history/:userId/:cardNumber', async () => {
